@@ -1,0 +1,13 @@
+# Ambientes virtuais e cache do Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.python-version
+
+# Artefatos de teste e relatórios
+test-results/
+playwright-report/
+*.log
+

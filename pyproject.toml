@@ -1,0 +1,29 @@
+[project]
+name = "qts-medsync"
+version = "1.0.0"
+description = "AT2 - Sistema MedSync de Agendamento Médico com Testes de Integração, E2E (Playwright), Acessibilidade (Axe-core) e Carga (Locust)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "pydantic[email]>=2.10.0",
+    "httpx>=0.28.0",
+    "pytest>=8.3.0",
+    "pytest-mock>=3.14.0",
+    "faker>=33.0.0",
+    "playwright>=1.49.0",
+    "pytest-playwright>=0.6.2",
+    "axe-playwright-python>=0.1.5",
+    "locust>=2.32.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --strict-markers -p no:locust"
+markers = [
+    "integration: Testes de integração da API com TestClient, Fixtures, Mocks e Faker",
+    "e2e: Testes End-to-End da interface web com Playwright e Page Object Model (POM)",
+    "accessibility: Testes de acessibilidade WCAG 2.1 AA com Axe-core e navegação por teclado",
+]

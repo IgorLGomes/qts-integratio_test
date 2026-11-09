@@ -1,0 +1,11 @@
+# Regras de Contexto (.cursorrules) - Projeto MedSync (QTS AT2)
+
+- Utilize Python 3.12+ gerenciado exclusivamente via `uv` (`uv sync`, `uv run pytest -v`, `uv run locust`).
+- Mantenha validação estrita com Pydantic v2 em `app/schemas.py`.
+- Estruture todos os testes no padrão AAA (Arrange, Act, Assert).
+- Utilize `@pytest.fixture` com `yield` para setup e teardown em `tests/conftest.py`.
+- Utilize `Faker("pt_BR")` encapsulado no padrão Factory (`tests/factories.py`).
+- Isole a dependência externa `InsuranceGateway.verify_coverage` com `mocker.patch` (`pytest-mock`), cobrindo cenários de sucesso e falha.
+- Utilize Page Object Model (`tests/pages/appointment_page.py`) com seletores semânticos do Playwright (`get_by_role`, `get_by_label`, `get_by_text`).
+- Garanta zero violações WCAG 2.1 AA (`wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`) no Axe-core (`axe-playwright-python`) e ordem lógica de foco via teclado (`Tab` + `to_be_focused()`).
+
